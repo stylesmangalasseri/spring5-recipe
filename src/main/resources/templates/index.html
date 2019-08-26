@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>Recipe Home</title>
+</head>
+
+
+<body>
+	<h1>My Recipes !!!!!</h1>
+
+	<div class="container" style="float: left;">
+	
+		<table class="table table-bordered" style="margin-top: 5%">
+			<tr>
+				<th>ID</th>
+				<th>Description</th>
+			</tr>
+			<tr th:each="recipe:${recipes}">
+				<td th:text="${recipe.id}"></td>
+				<td th:text="${recipe.description}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
