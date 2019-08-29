@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_recipe_dev
+    username: styles
+    password: Styles1234#
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    datbase-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    show-sql: true
+    #configuration to create mysql script ** START **
+    #automatically create the "spring_recipe_create.sql" file with sql command to create tables and columns
+    #If this enable, this will append the sql file with the command for every execution starting
+    #properties:
+    #  javax:
+    #    persistence:
+    #      schema-generation:
+    #        create-source: metadata
+    #        scripts:
+    #          action: create
+    #          create-target: spring_recipe_create.sql
+    #configuration to create mysql script ** END **
