@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import com.example.recipeapp.repositories.RecipeRepository;
 import com.example.recipeapp.repositories.UnitOfMeasureRepository;
 
 @Component
+@Profile("default")
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
 	private final CategoryRepository categoryRepository;
@@ -73,8 +75,11 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     //Yummy Guac
     Recipe guacRecipe = new Recipe();
     guacRecipe.setDescription("Perfect Guacamole");
-    guacRecipe.setPrepTime(10);
-    guacRecipe.setCookTime(0);
+    guacRecipe.setPrepTime(200);
+    guacRecipe.setCookTime(2);
+    guacRecipe.setServings(121);
+    guacRecipe.setSource("Sample source");
+    guacRecipe.setUrl("https://www.udemy.com");
     guacRecipe.setDifficulty(Difficulty.EASY);
     guacRecipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon" +
             "\n" +
@@ -120,7 +125,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     Recipe tacosRecipe = new Recipe();
     tacosRecipe.setDescription("Spicy Grilled Chicken Taco");
     tacosRecipe.setCookTime(9);
-    tacosRecipe.setPrepTime(20);
+    tacosRecipe.setPrepTime(100);
+    guacRecipe.setServings(300);
+    guacRecipe.setSource("Source 12345");
+    guacRecipe.setUrl("https://www.unda.com");
     tacosRecipe.setDifficulty(Difficulty.MODERATE);
 
     tacosRecipe.setDirections("1 Prepare a gas or charcoal grill for medium-high, direct heat.\n" +

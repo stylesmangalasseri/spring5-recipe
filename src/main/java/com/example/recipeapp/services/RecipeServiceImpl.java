@@ -1,6 +1,7 @@
 package com.example.recipeapp.services;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -18,7 +19,6 @@ public class RecipeServiceImpl implements RecipeService{
 		this.recipeRepository = recipeRepository;
 	}
 
-
 	@Override
 	public Set<Recipe> getRecipes() {
 		
@@ -29,4 +29,15 @@ public class RecipeServiceImpl implements RecipeService{
 		return recipeSet;
 	}
 
+	public Recipe findById(Long id) {
+		
+		Optional<Recipe> recipes = recipeRepository.findById(id);
+		
+		if(!recipes.isPresent()) {
+			
+			throw new RuntimeException("No recipe found with the ID=" + id);
+		}
+		
+		return recipes.get();
+	}
 }
